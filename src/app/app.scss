@@ -1,0 +1,470 @@
+/* ==========================================================================
+   Albany Prayer Group - App Component Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Main Content Layout Styles
+   ========================================================================== */
+
+main {
+  margin-top: 80px; // Account for fixed navigation
+}
+
+/* ==========================================================================
+   Section Styles
+   ========================================================================== */
+
+.section {
+  padding: var(--spacing-20) 0;
+  
+  @media (max-width: 768px) {
+    padding: var(--spacing-16) 0;
+  }
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-16);
+}
+
+.section-title {
+  margin: 0 0 var(--spacing-4) 0;
+  color: var(--color-text-primary);
+  
+  @media (max-width: 768px) {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+.section-subtitle {
+  margin: 0;
+  color: var(--color-text-secondary);
+  
+  @media (max-width: 768px) {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* ==========================================================================
+   Content Grid Styles
+   ========================================================================== */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-12);
+  align-items: start;
+  
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+}
+
+.content-main {
+  p {
+    margin: 0 0 var(--spacing-6) 0;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  ul {
+    margin: var(--spacing-6) 0;
+    padding-left: var(--spacing-6);
+    
+    li {
+      margin: var(--spacing-2) 0;
+      color: var(--color-text-secondary);
+    }
+  }
+}
+
+/* ==========================================================================
+   Activities Card Styles
+   ========================================================================== */
+
+.activities-card {
+  h3 {
+    margin: 0 0 var(--spacing-4) 0;
+    color: var(--color-text-primary);
+  }
+}
+
+.activities-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    padding: var(--spacing-2) 0;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    &:before {
+      content: "✓";
+      color: var(--color-accent);
+      font-weight: var(--font-weight-bold);
+      margin-right: var(--spacing-2);
+    }
+  }
+}
+
+/* ==========================================================================
+   Prayer Schedule Styles
+   ========================================================================== */
+
+.prayer-schedule {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-6);
+  
+  .card {
+    h3 {
+      margin: 0 0 var(--spacing-3) 0;
+      color: var(--color-text-primary);
+    }
+    
+    p {
+      margin: var(--spacing-2) 0;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      strong {
+        color: var(--color-text-primary);
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Children Highlight Styles
+   ========================================================================== */
+
+.children-highlight {
+  h3 {
+    margin: 0 0 var(--spacing-4) 0;
+    color: var(--color-text-primary);
+  }
+  
+  p {
+    margin: var(--spacing-3) 0;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ==========================================================================
+   Testimonies Grid Styles
+   ========================================================================== */
+
+.testimonies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-6);
+  
+  .card {
+    p {
+      margin: 0 0 var(--spacing-4) 0;
+      font-style: italic;
+      
+      &:last-child {
+        margin-bottom: 0;
+        font-style: normal;
+        text-align: right;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Events Grid Styles
+   ========================================================================== */
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: var(--spacing-8);
+  
+  .card {
+    h3 {
+      margin: 0 0 var(--spacing-4) 0;
+      color: var(--color-text-primary);
+    }
+  }
+}
+
+.events-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    padding: var(--spacing-3) 0;
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border-light);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    strong {
+      color: var(--color-text-primary);
+    }
+  }
+}
+
+/* ==========================================================================
+   Contact Section Styles
+   ========================================================================== */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-12);
+  
+  @media (max-width: 968px) {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+}
+
+.contact-info {
+  h3 {
+    margin: 0 0 var(--spacing-4) 0;
+    color: var(--color-text-primary);
+  }
+  
+  p {
+    margin: var(--spacing-4) 0;
+  }
+}
+
+.contact-details {
+  margin-top: var(--spacing-8);
+}
+
+.contact-item {
+  margin: var(--spacing-6) 0;
+  
+  h4 {
+    margin: 0 0 var(--spacing-2) 0;
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  p {
+    margin: 0;
+    color: var(--color-text-secondary);
+  }
+}
+
+/* ==========================================================================
+   Form Styles
+   ========================================================================== */
+
+.form {
+  .form-group {
+    margin-bottom: var(--spacing-6);
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: var(--spacing-2);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text-primary);
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: var(--spacing-3);
+    border: 1px solid var(--color-border-medium);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    transition: border-color var(--transition-fast);
+    
+    &:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    }
+    
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+  }
+  
+  textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+  }
+}
+
+/* ==========================================================================
+   Footer Styles
+   ========================================================================== */
+
+.footer {
+  padding: var(--spacing-16) 0 var(--spacing-8) 0;
+  
+  .container {
+    padding: 0 var(--spacing-6);
+  }
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-12);
+  margin-bottom: var(--spacing-12);
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+}
+
+.footer-main {
+  h3 {
+    margin: 0 0 var(--spacing-2) 0;
+    color: var(--color-text-inverse);
+  }
+  
+  p {
+    margin: var(--spacing-2) 0;
+    color: rgba(255, 255, 255, 0.8);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-8);
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+}
+
+.footer-section {
+  h4 {
+    margin: 0 0 var(--spacing-4) 0;
+    color: var(--color-text-inverse);
+  }
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  li {
+    margin: var(--spacing-2) 0;
+  }
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  
+  &:hover {
+    color: var(--color-text-inverse);
+  }
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-8);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
+  p {
+    margin: var(--spacing-1) 0;
+    color: rgba(255, 255, 255, 0.6);
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/* ==========================================================================
+   Responsive Design Enhancements
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-4);
+  }
+  
+  .section-content {
+    padding: 0 var(--spacing-4);
+  }
+  
+  .footer .container {
+    padding: 0 var(--spacing-4);
+  }
+}
+
+/* ==========================================================================
+   Accessibility Enhancements
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .slide-up {
+    animation: none;
+  }
+  
+  * {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  .nav,
+  .footer {
+    display: none;
+  }
+  
+  main {
+    margin-top: 0;
+  }
+  
+  .hero {
+    min-height: auto;
+    page-break-after: always;
+  }
+}

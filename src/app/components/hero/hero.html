@@ -1,0 +1,56 @@
+<!-- Home Section -->
+<section id="home" class="hero section">
+  <div class="container">
+    <div class="hero-content fade-in" *ngIf="messagesLoaded; else loading">
+      <h1 class="hero-title text-6xl font-semibold leading-tight">
+        {{ i18n.get('Apg.hero.title') }}
+      </h1>
+      <p class="hero-subtitle text-2xl text-secondary leading-relaxed">
+        {{ i18n.get('Apg.hero.subtitle') }}
+      </p>
+      
+      <!-- Small Verse Slideshow Banner -->
+      <div class="verse-banner">
+        <div 
+          *ngFor="let image of verseImages; let i = index" 
+          class="verse-slide"
+          [class.active]="i === currentSlide">
+          <img [src]="image" [alt]="'Bible Verse ' + (i + 1)" />
+        </div>
+        
+        <!-- Simple navigation dots -->
+        <div class="banner-nav">
+          <button 
+            *ngFor="let image of verseImages; let i = index"
+            class="nav-dot"
+            [class.active]="i === currentSlide"
+            (click)="goToSlide(i)">
+          </button>
+        </div>
+      </div>
+      
+      <p class="hero-description text-lg text-muted leading-relaxed">
+        {{ i18n.get('Apg.hero.description') }}
+      </p>
+      <div class="hero-actions">
+        <button type="button" class="btn btn-primary" (click)="onSectionClick('contact')">
+          {{ i18n.get('Apg.hero.joinButton') }}
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="onSectionClick('about')">
+          {{ i18n.get('Apg.hero.learnMoreButton') }}
+        </button>
+      </div>
+    </div>
+    
+    <ng-template #loading>
+      <div class="hero-content fade-in">
+        <h1 class="hero-title text-6xl font-semibold leading-tight">
+          Loading...
+        </h1>
+        <p class="hero-subtitle text-2xl text-secondary leading-relaxed">
+          Please wait while we load the content
+        </p>
+      </div>
+    </ng-template>
+  </div>
+</section>

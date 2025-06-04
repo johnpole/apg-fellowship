@@ -1,0 +1,49 @@
+<!-- Albany Prayer Group - Telugu Christian Fellowship Website -->
+<!-- Loading Screen -->
+<div *ngIf="!i18nService.isLoaded" class="loading-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center; z-index: 1000;">
+  <div class="loading-content" style="text-align: center;">
+    <h2>Loading Albany Prayer Group...</h2>
+    <p>Please wait while we prepare the content</p>
+  </div>
+</div>
+
+<!-- Main Application Content -->
+<div *ngIf="i18nService.isLoaded">
+  <!-- Navigation -->
+  <app-navigation 
+    [sections]="sections" 
+    (sectionSelected)="navigateToSection($event)">
+  </app-navigation>
+
+  <!-- Main Content -->
+  <main role="main">
+    
+    <!-- Hero Section -->
+    <app-hero (sectionSelected)="navigateToSection($event)"></app-hero>
+
+    <!-- About Section -->
+    <app-about></app-about>
+
+    <!-- Prayer Section -->
+    <app-prayer></app-prayer>
+
+    <!-- Children Ministry Section -->
+    <app-children></app-children>
+
+    <!-- Testimonies Section -->
+    <app-testimonies></app-testimonies>
+
+    <!-- Calendar Section -->
+    <app-calendar></app-calendar>
+
+    <!-- Contact Section -->
+    <app-contact></app-contact>
+
+  </main>
+
+  <!-- Footer -->
+  <app-footer (sectionSelected)="navigateToSection($event)"></app-footer>
+</div>
+
+<!-- Router Outlet for future expansion -->
+<router-outlet></router-outlet>

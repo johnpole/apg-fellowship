@@ -1,0 +1,41 @@
+<!-- Footer -->
+<footer class="footer" style="background-color: var(--color-bg-inverse); color: var(--color-text-inverse);">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-main">
+        <h3 class="text-2xl font-semibold">{{ i18n.get('Apg.footer.title') }}</h3>
+        <p class="text-base">{{ i18n.get('Apg.footer.subtitle') }}</p>
+        <p class="text-sm text-secondary">
+          {{ i18n.get('Apg.footer.description') }}
+        </p>
+      </div>
+      
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4 class="text-lg font-semibold">{{ i18n.get('Apg.footer.quickLinksTitle') }}</h4>
+          <ul class="footer-list">
+            <li><button type="button" (click)="onSectionClick('about')" class="footer-link">{{ i18n.get('Apg.footer.aboutUs') }}</button></li>
+            <li><button type="button" (click)="onSectionClick('prayer')" class="footer-link">{{ i18n.get('Apg.footer.prayer') }}</button></li>
+            <li><button type="button" (click)="onSectionClick('children')" class="footer-link">{{ i18n.get('Apg.footer.childrenMinistry') }}</button></li>
+            <li><button type="button" (click)="onSectionClick('contact')" class="footer-link">{{ i18n.get('Apg.footer.contact') }}</button></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="text-lg font-semibold">{{ i18n.get('Apg.footer.servicesTitle') }}</h4>
+          <ul class="footer-list">
+            <li>{{ i18n.get('Apg.footer.fridayBibleStudy') }}</li>
+            <li>{{ i18n.get('Apg.footer.sundayAtonementStudy') }}</li>
+            <li>{{ i18n.get('Apg.footer.prayerMeetings') }}</li>
+            <li>{{ i18n.get('Apg.footer.childrenMinistryService') }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="text-sm">&copy; {{ getCurrentYear() }} {{ i18n.get('Apg.footer.copyright') }}</p>
+      <p class="text-sm">{{ i18n.get('Apg.footer.location') }}</p>
+    </div>
+  </div>
+</footer>

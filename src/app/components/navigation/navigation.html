@@ -1,0 +1,31 @@
+<!-- Navigation Header -->
+<header class="nav" role="banner">
+  <div class="container">
+    <nav class="nav-content" role="navigation" aria-label="Main navigation">
+      <div class="nav-brand">
+        <img src="/apglogo.png" alt="Albany Prayer Group Logo" class="nav-logo">
+        <div class="nav-text">
+          <h1 class="nav-title">{{ i18n.get('Apg.navigation.brandTitle') }}</h1>
+          <p class="nav-subtitle">{{ i18n.get('Apg.navigation.brandSubtitle') }}</p>
+        </div>
+      </div>
+      
+      <div class="nav-actions">
+        <ul class="nav-menu" role="menubar">
+          <li role="none" *ngFor="let section of sections">
+            <button 
+              type="button"
+              role="menuitem"
+              class="nav-link"
+              [class.active]="section.active"
+              (click)="onSectionClick(section.id)"
+              [attr.aria-current]="section.active ? 'page' : null">
+              {{ section.label }}
+            </button>
+          </li>
+        </ul>
+        <app-language-switcher></app-language-switcher>
+      </div>
+    </nav>
+  </div>
+</header>

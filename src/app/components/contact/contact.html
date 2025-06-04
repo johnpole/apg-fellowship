@@ -1,0 +1,122 @@
+<!-- Contact Section -->
+<section id="contact" class="section" style="background-color: var(--color-bg-secondary);">
+  <div class="container">
+    <div class="section-content slide-up">
+      <div class="section-header">
+        <h2 class="section-title text-5xl font-semibold">{{ i18n.get('Apg.contact.title') }}</h2>
+        <p class="section-subtitle text-xl text-secondary">
+          {{ i18n.get('Apg.contact.subtitle') }}
+        </p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3 class="text-2xl font-semibold">{{ i18n.get('Apg.contact.getInTouchTitle') }}</h3>
+          <p class="text-lg leading-relaxed">
+            {{ i18n.get('Apg.contact.description') }}
+          </p>
+          
+          <div class="contact-details">
+            <div class="contact-item">
+              <h4 class="text-lg font-semibold">{{ i18n.get('Apg.contact.inPersonLocationTitle') }}</h4>
+              <p class="text-base">{{ i18n.get('Apg.contact.inPersonLocation') }}</p>
+            </div>
+            
+            <div class="contact-item">
+              <h4 class="text-lg font-semibold">{{ i18n.get('Apg.contact.onlineMeetingsTitle') }}</h4>
+              <p class="text-base">{{ i18n.get('Apg.contact.onlineMeetings') }}</p>
+            </div>
+            
+            <div class="contact-item">
+              <h4 class="text-lg font-semibold">{{ i18n.get('Apg.contact.serviceAreasTitle') }}</h4>
+              <p class="text-base">{{ i18n.get('Apg.contact.serviceAreas') }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form card">
+          <h3 class="text-2xl font-semibold">{{ i18n.get('Apg.contact.formTitle') }}</h3>
+          
+          <!-- Success Message -->
+          <div *ngIf="isSubmitted" class="success-message">
+            <div class="success-icon">✓</div>
+            <h4>Thank You!</h4>
+            <p>Your message has been submitted successfully. We'll get back to you soon!</p>
+            <button type="button" class="btn btn-secondary" (click)="resetForm()">
+              Send Another Message
+            </button>
+          </div>
+
+          <!-- Error Message -->
+          <div *ngIf="submitError" class="error-message">
+            <div class="error-icon">⚠</div>
+            <h4>Submission Failed</h4>
+            <p>{{ errorMessage || 'There was an error submitting your message. Please try again.' }}</p>
+          </div>
+
+          <!-- Contact Form -->
+          <form *ngIf="!isSubmitted" [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form">
+            <div class="form-group">
+              <label for="name" class="form-label">{{ i18n.get('Apg.contact.nameLabel') }} *</label>
+              <input 
+                type="text" 
+                id="name" 
+                formControlName="name" 
+                class="form-input"
+                [class.error]="isFieldInvalid('name')"
+                required>
+              <div *ngIf="isFieldInvalid('name')" class="field-error">
+                {{ getFieldError('name') }}
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">{{ i18n.get('Apg.contact.emailLabel') }} *</label>
+              <input 
+                type="email" 
+                id="email" 
+                formControlName="email" 
+                class="form-input"
+                [class.error]="isFieldInvalid('email')"
+                required>
+              <div *ngIf="isFieldInvalid('email')" class="field-error">
+                {{ getFieldError('email') }}
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">{{ i18n.get('Apg.contact.phoneLabel') }}</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                formControlName="phone" 
+                class="form-input">
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">{{ i18n.get('Apg.contact.messageLabel') }} *</label>
+              <textarea 
+                id="message" 
+                formControlName="message" 
+                rows="4" 
+                class="form-input"
+                [class.error]="isFieldInvalid('message')"
+                [placeholder]="i18n.get('Apg.contact.messagePlaceholder')"></textarea>
+              <div *ngIf="isFieldInvalid('message')" class="field-error">
+                {{ getFieldError('message') }}
+              </div>
+            </div>
+            
+            <button 
+              type="submit" 
+              class="btn btn-primary"
+              [disabled]="contactForm.invalid || isSubmitting">
+              <span *ngIf="!isSubmitting">{{ i18n.get('Apg.contact.submitButton') }}</span>
+              <span *ngIf="isSubmitting">Sending...</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
