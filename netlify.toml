@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
   functions = "netlify/functions"
-  publish = "dist/apg-ui"
+  publish = "dist/apg-ui/browser"
 
 [build.environment]
   NODE_VERSION = "20"
