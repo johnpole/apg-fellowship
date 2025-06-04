@@ -10,10 +10,7 @@
 <!-- Main Application Content -->
 <div *ngIf="i18nService.isLoaded">
   <!-- Navigation -->
-  <app-navigation 
-    [sections]="sections" 
-    (sectionSelected)="navigateToSection($event)">
-  </app-navigation>
+  <app-navigation></app-navigation>
 
   <!-- Main Content -->
   <main role="main">

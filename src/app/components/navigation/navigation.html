@@ -1,31 +1,96 @@
-<!-- Navigation Header -->
-<header class="nav" role="banner">
-  <div class="container">
-    <nav class="nav-content" role="navigation" aria-label="Main navigation">
-      <div class="nav-brand">
-        <img src="/apglogo.png" alt="Albany Prayer Group Logo" class="nav-logo">
-        <div class="nav-text">
-          <h1 class="nav-title">{{ i18n.get('Apg.navigation.brandTitle') }}</h1>
-          <p class="nav-subtitle">{{ i18n.get('Apg.navigation.brandSubtitle') }}</p>
+<!-- Navigation -->
+<nav class="navigation" role="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <!-- Logo and Brand -->
+    <div class="nav-brand">
+      <img src="apglogo.png" alt="Albany Prayer Group Logo" class="nav-logo">
+      <div class="nav-brand-text">
+        <span class="nav-brand-title">Albany Prayer Group</span>
+        <span class="nav-brand-subtitle">{{ i18n.get('Apg.navigation.brandSubtitle') }}</span>
+      </div>
+    </div>
+    
+    <!-- Mobile Menu Button (Hamburger) -->
+    <button 
+      class="mobile-menu-btn" 
+      [class.active]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()"
+      aria-label="Toggle mobile menu"
+      [attr.aria-expanded]="isMobileMenuOpen">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    
+    <!-- Navigation Links -->
+    <div class="nav-links" [class.mobile-open]="isMobileMenuOpen">
+      <!-- Mobile Header (visible only on mobile when menu is open) -->
+      <div class="mobile-header">
+        <img src="apglogo.png" alt="Albany Prayer Group Logo" class="mobile-logo">
+        <div class="mobile-title-container">
+          <span class="mobile-title">Albany Prayer Group</span>
+          <span class="mobile-subtitle">{{ i18n.get('Apg.navigation.brandSubtitle') }}</span>
         </div>
+        <button 
+          class="mobile-close-btn" 
+          (click)="closeMobileMenu()"
+          aria-label="Close mobile menu">
+          ×
+        </button>
       </div>
       
-      <div class="nav-actions">
-        <ul class="nav-menu" role="menubar">
-          <li role="none" *ngFor="let section of sections">
-            <button 
-              type="button"
-              role="menuitem"
-              class="nav-link"
-              [class.active]="section.active"
-              (click)="onSectionClick(section.id)"
-              [attr.aria-current]="section.active ? 'page' : null">
-              {{ section.label }}
-            </button>
-          </li>
-        </ul>
-        <app-language-switcher></app-language-switcher>
+      <!-- Navigation Items -->
+      <div class="nav-items">
+        <a href="#hero" 
+           class="nav-link" 
+           (click)="scrollToSection('hero')"
+           [attr.aria-label]="i18n.get('Apg.navigation.home')">
+          {{ i18n.get('Apg.navigation.home') }}
+        </a>
+        <a href="#about" 
+           class="nav-link" 
+           (click)="scrollToSection('about')"
+           [attr.aria-label]="i18n.get('Apg.navigation.aboutUs')">
+          {{ i18n.get('Apg.navigation.aboutUs') }}
+        </a>
+        <a href="#prayer" 
+           class="nav-link" 
+           (click)="scrollToSection('prayer')"
+           [attr.aria-label]="i18n.get('Apg.navigation.prayer')">
+          {{ i18n.get('Apg.navigation.prayer') }}
+        </a>
+        <a href="#testimonies" 
+           class="nav-link" 
+           (click)="scrollToSection('testimonies')"
+           [attr.aria-label]="i18n.get('Apg.navigation.testimonies')">
+          {{ i18n.get('Apg.navigation.testimonies') }}
+        </a>
+        <a href="#children" 
+           class="nav-link" 
+           (click)="scrollToSection('children')"
+           [attr.aria-label]="i18n.get('Apg.navigation.childrenMinistry')">
+          {{ i18n.get('Apg.navigation.childrenMinistry') }}
+        </a>
+        <a href="#calendar" 
+           class="nav-link" 
+           (click)="scrollToSection('calendar')"
+           [attr.aria-label]="i18n.get('Apg.navigation.calendar')">
+          {{ i18n.get('Apg.navigation.calendar') }}
+        </a>
+        <a href="#contact" 
+           class="nav-link nav-link-cta" 
+           (click)="scrollToSection('contact')"
+           [attr.aria-label]="i18n.get('Apg.navigation.contactUs')">
+          {{ i18n.get('Apg.navigation.contactUs') }}
+        </a>
       </div>
-    </nav>
+    </div>
+    
+    <!-- Mobile Overlay -->
+    <div 
+      class="mobile-overlay" 
+      [class.active]="isMobileMenuOpen"
+      (click)="closeMobileMenu()">
+    </div>
   </div>
-</header>
+</nav>

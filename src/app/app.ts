@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 // Import all components
-import { NavigationComponent, NavSection } from './components/navigation/navigation';
+import { NavigationComponent } from './components/navigation/navigation';
 import { HeroComponent } from './components/hero/hero';
 import { AboutComponent } from './components/about/about';
 import { PrayerComponent } from './components/prayer/prayer';
@@ -13,6 +14,7 @@ import { CalendarComponent } from './components/calendar/calendar';
 import { ContactComponent } from './components/contact/contact';
 import { FooterComponent } from './components/footer/footer';
 import { I18nService } from './services/i18n';
+import { EmailService } from './services/email.service';
 
 @Component({
   selector: 'app-root',
@@ -32,24 +34,18 @@ import { I18nService } from './services/i18n';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
+export class App implements OnInit, AfterViewInit {
   protected title = 'Albany Prayer Group - Telugu Christian Fellowship';
   
-  // Navigation sections for single page app
-  protected sections: NavSection[] = [
-    { id: 'home', label: 'Home', active: true },
-    { id: 'about', label: 'About Us', active: false },
-    { id: 'prayer', label: 'Prayer', active: false },
-    { id: 'children', label: 'Children Ministry', active: false },
-    { id: 'testimonies', label: 'Testimonies', active: false },
-    { id: 'calendar', label: 'Calendar', active: false },
-    { id: 'contact', label: 'Contact Us', active: false }
-  ];
+  constructor(public i18nService: I18nService, private emailService: EmailService) {}
 
-  // Current active section
-  protected activeSection = 'home';
+  ngOnInit() {
+    // Additional initialization logic if needed
+  }
 
-  constructor(public i18nService: I18nService) {}
+  ngAfterViewInit() {
+    // Additional logic after view initialization if needed
+  }
 
   // Helper method for template to count messages
   getMessageCount(): number {
@@ -58,11 +54,6 @@ export class App {
 
   // Navigate to section
   navigateToSection(sectionId: string): void {
-    this.activeSection = sectionId;
-    this.sections.forEach(section => {
-      section.active = section.id === sectionId;
-    });
-    
     // Smooth scroll to section
     const element = document.getElementById(sectionId);
     if (element) {
